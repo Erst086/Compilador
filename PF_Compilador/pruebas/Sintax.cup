@@ -1,0 +1,41 @@
+package fes.aragon.compilador;
+
+import java_cup.runtime.Symbol;
+
+parser code
+{:
+    private Symbol s;
+    
+    public void syntax_error(Symbol s){
+        this.s = s;
+    }
+
+    public Symbol getS(){
+        return this.s;
+    }
+:};
+
+terminal NUMERO, INICIO, FINAL, PARENTESIS_A, PARENTESIS_C, PUNTO_COMA, MOVER, MOVIMIENTO, ERROR;
+
+non terminal FUNCION_COMPLETA, VALOR, ACCION_MOVER, INICIAR, FINALIZAR;
+
+start with FUNCION_COMPLETA;
+
+FUNCION_COMPLETA ::= INICIAR ACCION_MOVER FINALIZAR
+;
+
+INICIAR ::= INICIO PARENTESIS_A PARENTESIS_C PUNTO_COMA
+
+;
+
+FINALIZAR ::= FINAL PARENTESIS_A PARENTESIS_C PUNTO_COMA
+
+;
+
+ACCION_MOVER ::= MOVER MOVIMIENTO VALOR
+
+;
+
+VALOR ::= NUMERO
+
+;

@@ -1,0 +1,6 @@
+inicio();
+mover derecha 4
+mover abajo 2
+mover abajo 2
+mover izquierda 1 
+fin();
